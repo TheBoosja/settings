@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import ControlGroup from '../ControlGroup';
+
+const Input = styled.input.attrs(() => ({
+	type: 'text'
+}))`
+	background-color: ${props => props.theme.primary};
+	border: 1px solid ${props => props.theme.secondary};
+	flex: 1;
+	font: inherit;
+	padding: 1rem;
+`;
 
 class TextInput extends Component {
 	render() {
@@ -7,8 +18,8 @@ class TextInput extends Component {
 
 		return (
 			<ControlGroup id={name} label={label}>
-				<input
-					className="controlGroup__input"
+				<Input
+					// className="controlGroup__input"
 					type="text"
 					id={name}
 					name={name}

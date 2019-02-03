@@ -1,14 +1,25 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { ThemeProvider } from 'styled-components';
+
 import Settings from './pages/Settings';
 
 class App extends Component {
 	render() {
 		return (
-			<div className="App">
+			<ThemeProvider theme={this.props.theme}>
 				<Settings />
-			</div>
+			</ThemeProvider>
 		);
 	}
 }
 
-export default App;
+function mapStateToProps(state) {
+	console.log('theme', state.theme)
+	return {
+		theme: state.theme
+	};
+}
+
+export default connect(mapStateToProps)(App);

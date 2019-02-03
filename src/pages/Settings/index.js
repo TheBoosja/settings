@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import TextInput from '../../components/TextInput';
 import CheckBox from '../../components/CheckBox';
+import RadioButton from '../../components/RadioButton';
+import RadioGroup from '../../components/RadioGroup';
 
 class Settings extends Component {
 	constructor(props) {
@@ -8,7 +10,8 @@ class Settings extends Component {
 
 		this.state = {
 			name: '',
-			bool: false
+			bool: false,
+			radio: 0
 		};
 
 		this.onChange = this.onChange.bind(this);
@@ -26,11 +29,19 @@ class Settings extends Component {
 	}
 
 	onChange(e) {
-		const { name, value } = e.target;
+		let { name, value } = e.target;
+
+		if (name === 'bool') {
+			value = !this.state.bool
+			console.log('CHECKED', value)
+		}
+		else if (name.includes('radio')) {
+			name = 'radio';
+		}
 
 		this.setState({
 			[name]: value
-		});
+		}, () => console.log('onChange', this.state));
 	}
 
 	onBlur(e) {
@@ -57,11 +68,36 @@ class Settings extends Component {
 				<CheckBox
 					label="True or false"
 					name="bool"
-					value
 					checked={this.state.bool}
 					onChange={this.onChange}
 					onBlur={this.onBlur}
 				/>
+				<RadioGroup label='This one, or this one?'>
+					<RadioButton
+						name='radio1'
+						label='One'
+						value={1}
+						checked={this.state.radio === '1'}
+						onChange={this.onChange}
+						onBlur={this.onBlur}
+					/>
+					<RadioButton
+						name='radio2'
+						label='Two'
+						value={2}
+						checked={this.state.radio === '2'}
+						onChange={this.onChange}
+						onBlur={this.onBlur}
+					/>
+					<RadioButton
+						name='radio3'
+						label='Three'
+						value={3}
+						checked={this.state.radio === '3'}
+						onChange={this.onChange}
+						onBlur={this.onBlur}
+					/>
+				</RadioGroup>
 			</div>
 		);
 	}
