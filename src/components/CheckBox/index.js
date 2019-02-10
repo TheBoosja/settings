@@ -9,14 +9,14 @@ const ChckBox = styled.input.attrs(() => ({
 `;
 
 const Label = styled.label`
-	border: 1px solid ${props => props.theme.secondary};
-	height: 4rem;
+	border: 1px solid ${({ theme }) => theme.secondary};
+	height: ${({ theme }) => theme.standardSize};
 	justify-self: left;
-	width: 4rem;
+	width: ${({ theme }) => theme.standardSize};
 
 	${ChckBox}:checked + & {
-		background-color: ${props => props.theme.primary};
-		border: 1rem solid ${props => props.theme.secondary}
+		background-color: ${({ theme }) => theme.primary};
+		border: ${({ theme }) => theme.standardSpace} solid ${({ theme }) => theme.secondary}
 	}
 `;
 

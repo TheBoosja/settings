@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const RadioContainer = styled.span`
-	margin-right: 1.8rem;
+	margin-right: ${({ theme }) => theme.largeSpace};
 `;
 
 const RadioBtn = styled.input.attrs(() => ({
@@ -15,18 +15,20 @@ const Label = styled.label`
 	display: grid;
 	grid-auto-flow: column;
 	justify-items: start;
+	align-items: center;
+	grid-gap: ${({ theme }) => theme.standardSpace};
 
 	&:before {
 		content: '';
 		border: 1px solid ${props => props.theme.secondary};
-		border-radius: 2rem;
-		height: 4rem;
-		width: 4rem;
+		border-radius: ${({ theme }) => theme.largeSpace};
+		height: ${({ theme }) => theme.standardSize};
+		width: ${({ theme }) => theme.standardSize};
 		display: inline-block;
 
 		${RadioBtn}:checked + & {
 			background-color: ${props => props.theme.primary};
-			border: 1rem solid ${props => props.theme.secondary}
+			border: ${({ theme }) => theme.standardSpace} solid ${props => props.theme.secondary}
 		}
 	}
 `;

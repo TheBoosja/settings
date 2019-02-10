@@ -4,12 +4,12 @@ import styled from 'styled-components';
 const CtrlGroup = styled.div`
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	margin-bottom: 1rem;
+	margin-bottom: ${({ theme }) => theme.standardSpace};
 `;
 
 const Label = styled.label`
 	/* flex: ${props => props.halfSize ? .5 : 1}; */
-	padding: 1rem 2rem;
+	padding: ${({ theme }) => `${theme.standardSpace} ${theme.largeSpace}`};
 `;
 
 class ControlGroup extends Component {

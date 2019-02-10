@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import ControlGroup from '../ControlGroup';
 
-const Input = styled.input.attrs(() => ({
-	type: 'text'
-}))`
+const Select = styled.select`
 	background-color: ${props => props.theme.primary};
 	border: 1px solid ${props => props.theme.secondary};
 	flex: 1;
@@ -12,24 +10,22 @@ const Input = styled.input.attrs(() => ({
 	padding: ${({ theme }) => theme.standardSpace};
 `;
 
-class TextInput extends Component {
+class SelectBox extends Component {
 	render() {
-		const { label, name, value, onChange, onBlur } = this.props;
+		const { label, name, value, onChange, children } = this.props;
 
 		return (
-			<ControlGroup id={name} label={label}>
-				<Input
-					// className="controlGroup__input"
-					type="text"
-					id={name}
+			<ControlGroup label={label}>
+				<Select
 					name={name}
 					value={value}
 					onChange={onChange}
-					onBlur={onBlur}
-				/>
+				>
+					{children}
+				</Select>
 			</ControlGroup>
 		);
 	}
 }
 
-export default TextInput;
+export default SelectBox;

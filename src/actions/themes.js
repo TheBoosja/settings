@@ -23,10 +23,18 @@ export default function themes(state = themeA, action) {
 	}
 }
 
+const ratio = 1;
+
 // THEMES
 const themeA = {
 	primary: '#65B7EE',
-	secondary: '#3DA7EE'
+	secondary: '#3DA7EE',
+
+	// Sizing
+	fontSize:  `${1.4}rem`,
+	standardSize: `${2 * ratio}rem`,
+	standardSpace: `${.5 * ratio}rem`,
+	largeSpace: `${ratio}rem`
 };
 
 const themeB = {
