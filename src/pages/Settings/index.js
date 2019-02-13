@@ -136,12 +136,17 @@ class Settings extends Component {
 
 		return (
 			<Layout>
-				{renderBox()}
-				{renderBox()}
-				{renderBox()}
-				{renderBox()}
-				{renderBox()}
-				{renderBox()}
+				<SettingsBox>
+					<SelectBox
+						name='theme'
+						label='Color theme'
+						value={this.state.themeId}
+						onChange={this.onChange}
+					>
+						<OptionItem value={0}>Blue</OptionItem>
+						<OptionItem value={1}>Red</OptionItem>
+					</SelectBox>
+				</SettingsBox>
 			</Layout>
 		);
 	}
