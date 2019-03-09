@@ -9,14 +9,14 @@ import RadioGroup from '../../components/RadioGroup';
 import SelectBox from '../../components/SelectBox';
 import OptionItem from '../../components/OptionItem';
 
-const Layout = styled.div`
+export const Layout = styled.div`
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-gap: ${({ theme }) => theme.largeSpace};
 	margin: 1rem 50rem;
 `;
 
-const SettingsBox = styled.div`
+export const SettingsBox = styled.div`
 	background-color: #f4f4f4;
 	border: 1px solid #e8e8e8;
 	padding: 1rem;

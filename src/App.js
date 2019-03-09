@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import Settings from './pages/Settings';
+import Configurations from './pages/Configurations';
 
 const GlobalStyle = createGlobalStyle`
 	*,
@@ -31,6 +32,7 @@ class App extends Component {
 				<React.Fragment>
 					<GlobalStyle />
 					<Settings />
+					<Configurations />
 				</React.Fragment>
 			</ThemeProvider>
 		);
